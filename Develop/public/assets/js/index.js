@@ -4,6 +4,7 @@ var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
 var $noteList = $(".list-container .list-group");
 
+
 // activeNote is used to keep track of the note in the textarea
 var activeNote = {};
 
@@ -51,9 +52,11 @@ var renderActiveNote = function() {
 
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
+
   var newNote = {
     title: $noteTitle.val(),
-    text: $noteText.val()
+    text: $noteText.val(),
+    id: Date.now()
   };
 
   saveNote(newNote).then(function(data) {
@@ -141,5 +144,7 @@ $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
+
+
 
 
