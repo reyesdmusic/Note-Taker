@@ -51,6 +51,9 @@ var renderActiveNote = function() {
 };
 
 // Get the note data from the inputs, save it to the db and update the view
+
+//added id with date.now to set unique id number
+
 var handleNoteSave = function() {
 
   var newNote = {

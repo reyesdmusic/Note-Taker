@@ -2,24 +2,15 @@
 
 # Table of contents
 1. [Project Description](#descriptionLink)
-2. [Usage](#usageLink)
-3. [Rendered Page UI](#uiLink)
-4. [Version](#versionLink)
-5. [Dependencies](#dependenciesLink)
-6. [Contact](#contactLink)
+2. [Version](#versionLink)
+3. [Dependencies](#dependenciesLink)
+4. [Contact](#contactLink)
 
 
 ----
 
 ## Project Descripton <a name="descriptionLink"></a>
-
-
-## Usage <a name="usageLink"></a>
-In the terminal, run ```node app.js```
-
-
-## Rendered Page UI <a name="uiLink"></a>
-![](Develop/images/meet-the-team.png)
+This app allows the user to save, recall, and delete notes.
 
 
 ## Version <a name="versionLink"></a>
