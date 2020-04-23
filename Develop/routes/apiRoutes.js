@@ -16,16 +16,17 @@ let notesArray = notesDb;
 
 module.exports = function(app) {
 
-  //GET responds with the notes entries array in the database, rendering it in JSON format.
+//GET responds with the notes entries array in the database, rendering it in JSON format.
   
   app.get("/api/notes", function(req, res) {
    
     res.json(notesDb);
   });
 
-  //POST 
+//POST checks for an empty array and posts a dummy note if it's empty. Then, if the only object in the array is the dummy, it removes it before adding the new post. Then it responds with the new array in JSON format.
 
   app.post("/api/notes", function(req, res) {
+    
     if(notesArray.length === 0){
       notesArray.push( {
         "title": "",
@@ -54,7 +55,7 @@ module.exports = function(app) {
   
 });
 
-
+//DELETE cycles through array to find given id#, once found it deletes it from the array, writes a new db.json and responds with the new array in json format.
 app.delete("/api/notes/:id", function(req, res) {
     
   var chosen = req.params.id;

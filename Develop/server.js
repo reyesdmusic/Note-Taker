@@ -11,7 +11,7 @@ app.use(express.static("public"));
 
 // Set port#
 
-var PORT = 9010;
+var PORT = process.env.PORT || 9010;
 
 // ROUTER
 
