@@ -8,10 +8,14 @@ const path = require("path");
 const fs = require("fs");
 
 
+
+
 var notesDb = require("../db/db.json");
 
 const DB_DIR = path.resolve(__dirname, "../db");
 const outputPath = path.join(DB_DIR, "db.json");
+
+var notesArray = notesDb;
 
 
 // ===============================================================================
@@ -43,18 +47,26 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-
+    // let myHardCode = [{"title":"New Title","text":"New text"}];
    
-      fs.appendFile(outputPath, req.body, function(err){
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Success! Your team.html file is in your output folder.");
-        }
-    });
-      
+    notesArray.push(req.body);
+
+    
+    
+
+    let finalObject = JSON.stringify(notesArray, null, 2);
+
+    fs.writeFile(outputPath, finalObject, function(err){
+      if (err) {
+        console.log(err);
+    } else {
+        console.log("Success! You've saved a note!");
+    }
+});
+  
+});
  
-  });
+
 
   // ---------------------------------------------------------------------------
   // I added this below code so you could clear out the table while working with the functionality.
